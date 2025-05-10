@@ -6,15 +6,10 @@
     <title>化学反应速率影响因素模拟 by Zzz</title>
     <!-- by Hong @涪陵五中 https://hong.im -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <h1>化学反应速率影响因素模拟</h1>
-        
-        <button id="mobile-controls-toggle" class="mobile-toggle">
-            <i class="fas fa-sliders-h"></i> 控制面板
-        </button>
         
         <div class="main-content">
             <div class="simulation-container">
@@ -97,21 +92,6 @@
     </div>
 
     <script src="simulation.js"></script>
-    <script>
-        // 移动端控制面板切换
-        document.getElementById('mobile-controls-toggle').addEventListener('click', function() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('mobile-visible');
-            
-            // 切换按钮文本
-            const icon = this.querySelector('i');
-            if (sidebar.classList.contains('mobile-visible')) {
-                this.innerHTML = '<i class="fas fa-times"></i> 关闭面板';
-            } else {
-                this.innerHTML = '<i class="fas fa-sliders-h"></i> 控制面板';
-            }
-        });
-    </script>
 </body>
 <!-- by Hong @涪陵五中 https://hong.im -->
 </html>
