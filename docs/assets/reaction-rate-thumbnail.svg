@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Background elements -->
+  <rect x="10" y="10" width="380" height="180" rx="8" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <!-- Simulation area -->
+  <rect x="20" y="20" width="240" height="160" rx="4" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <!-- Particles -->
+  <circle cx="50" cy="50" r="6" fill="#3498db"/>
+  <circle cx="80" cy="70" r="6" fill="#3498db"/>
+  <circle cx="120" cy="40" r="6" fill="#3498db"/>
+  <circle cx="150" cy="90" r="6" fill="#3498db"/>
+  <circle cx="190" cy="60" r="6" fill="#3498db"/>
+  <circle cx="220" cy="120" r="6" fill="#3498db"/>
+  <circle cx="60" cy="130" r="6" fill="#3498db"/>
+  <circle cx="100" cy="150" r="6" fill="#3498db"/>
+  <circle cx="140" cy="110" r="6" fill="#3498db"/>
+  <circle cx="180" cy="140" r="6" fill="#3498db"/>
+  
+  <!-- Activated particles -->
+  <circle cx="70" cy="100" r="8" fill="#e74c3c"/>
+  <circle cx="110" cy="80" r="8" fill="#e74c3c"/>
+  <circle cx="160" cy="130" r="8" fill="#e74c3c"/>
+  <circle cx="200" cy="50" r="8" fill="#e74c3c"/>
+  
+  <!-- Collision visualization -->
+  <circle cx="130" cy="70" r="15" fill="none" stroke="#2ecc71" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Control panel -->
+  <rect x="270" y="20" width="110" height="160" rx="4" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <!-- Controls -->
+  <text x="280" y="40" font-family="Arial" font-size="10" fill="#2c3e50">温度 (K):</text>
+  <rect x="280" y="45" width="90" height="6" rx="3" fill="#ecf0f1"/>
+  <circle cx="320" cy="48" r="6" fill="#3498db"/>
+  
+  <text x="280" y="70" font-family="Arial" font-size="10" fill="#2c3e50">容器体积:</text>
+  <rect x="280" y="75" width="90" height="6" rx="3" fill="#ecf0f1"/>
+  <circle cx="310" cy="78" r="6" fill="#3498db"/>
+  
+  <text x="280" y="100" font-family="Arial" font-size="10" fill="#2c3e50">分子数量:</text>
+  <rect x="280" y="105" width="90" height="6" rx="3" fill="#ecf0f1"/>
+  <circle cx="330" cy="108" r="6" fill="#3498db"/>
+  
+  <!-- Data display -->
+  <text x="280" y="130" font-family="Arial" font-size="10" fill="#2c3e50">碰撞频率:</text>
+  <text x="280" y="145" font-family="Arial" font-size="12" fill="#e74c3c" font-weight="bold">42 次/5s</text>
+  
+  <text x="280" y="165" font-family="Arial" font-size="10" fill="#2c3e50">平均速率:</text>
+  <text x="280" y="180" font-family="Arial" font-size="12" fill="#3498db" font-weight="bold">1.24</text>
+  
+  <!-- Title -->
+  <text x="200" y="195" font-family="Arial" font-size="12" text-anchor="middle" fill="#2c3e50">化学反应速率影响因素模拟</text>
+</svg>

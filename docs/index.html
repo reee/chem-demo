@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>化学教学演示项目 | 中学化学教师作品集</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="中学化学教师的教学演示项目集合，包含各种化学反应原理的交互式演示">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>化学教学演示项目</h1>
+            <p class="subtitle">交互式化学原理可视化教学工具</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about">
+            <div class="about-content">
+                <h2>关于我</h2>
+                <p>作为一名热爱教育的中学化学教师，我致力于开发交互式教学工具，帮助学生更直观地理解化学原理。通过将抽象的化学概念可视化，我希望激发学生对化学的兴趣，提升课堂教学效果。</p>
+                <p>我的目标是创建一系列高质量的化学演示项目，覆盖中学化学课程的关键知识点，为化学教育提供实用的数字化教学资源。</p>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2>项目展示</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/placeholder.svg" alt="化学反应速率影响因素模拟" onerror="this.src='assets/placeholder.svg'">
+                    </div>
+                    <div class="project-info">
+                        <h3>化学反应速率影响因素模拟</h3>
+                        <p>这个交互式模拟展示了浓度、压强和温度如何影响化学反应速率。学生可以调节不同参数，观察分子运动和碰撞的变化，直观理解影响反应速率的因素。</p>
+                        <div class="project-features">
+                            <span class="feature"><i class="fas fa-thermometer-half"></i> 温度调节</span>
+                            <span class="feature"><i class="fas fa-compress-alt"></i> 压强变化</span>
+                            <span class="feature"><i class="fas fa-flask"></i> 浓度控制</span>
+                        </div>
+                        <a href="reaction-rate-demo/index.html" class="btn">查看演示</a>
+                    </div>
+                </div>
+                
+                <!-- 未来项目占位 -->
+                <div class="project-card future-project">
+                    <div class="project-image placeholder">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>更多项目开发中</h3>
+                        <p>我正在开发更多的化学教学演示项目，敬请期待！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year">2025</span> 化学教学演示项目集 | 使用 <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> 托管</p>
+            <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+        </div>
+    </footer>
+</body>
+</html>
