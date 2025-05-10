@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>化学反应速率影响因素模拟</title>
+    <!-- by Hong @涪陵五中 https://hong.im -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>化学反应速率影响因素模拟</h1>
+        
+        <div class="main-content">
+            <div class="simulation-container">
+                <canvas id="simulation"></canvas>
+            </div>
+            
+            <div class="sidebar">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="molecule-count">分子数量:</label>
+                        <input type="range" id="molecule-count" min="2" max="1000" value="100">
+                        <span id="molecule-count-value">100</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="volume">容器体积 (相对值):</label>
+                        <input type="range" id="volume" min="0.5" max="2.0" step="0.1" value="1.0">
+                        <span id="volume-value">1.00</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="temperature">温度 (K):</label>
+                        <input type="range" id="temperature" min="10" max="500" value="300">
+                        <span id="temperature-value">300</span>
+                    </div>
+                </div>
+
+                <div class="data-panel">
+                    <h3>数据统计</h3>
+                    <div class="data-item">
+                        <label>相对浓度:</label>
+                        <span id="current-concentration">1.00</span>
+                    </div>
+                    <div class="data-item">
+                        <label>相对压强:</label>
+                        <span id="current-pressure">1.00</span>
+                    </div>
+                    <div class="data-item">
+                        <label>活化分子百分数:</label>
+                        <span id="activated-percentage">20%</span>
+                    </div>
+                    <div class="data-item">
+                        <label>单位体积内活化分子数:</label>
+                        <span id="activated-molecules">0</span>
+                    </div>
+                    <div class="data-item">
+                        <label>微粒平均速率 (相对值):</label>
+                        <span id="average-velocity">1.00</span>
+                    </div>
+                    <div class="data-item">
+                        <label>碰撞频率 (次/5s):</label>
+                        <span id="collision-rate">0</span>
+                    </div>
+                    <div class="data-item">
+                        <label>有效碰撞频率 (次/5s):</label>
+                        <span id="effective-collision-rate">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <div class="explanation-content">
+                <h2>原理说明</h2>
+                <h3>一、模拟内容</h3>
+                <p>本模拟展示了理想气体反应时，浓度、压强和温度对化学反应速率的影响。通过调节不同的参数，可以观察到这些因素如何影响分子的运动和碰撞。</p>
+    
+                <h3>二、数据说明</h3>
+                <p>• 相对浓度：与初始状态相比的浓度值（与分子数量正相关，与容器体积反相关）</p>
+                <p>• 相对压强：与初始状态相比的压强值（与浓度正相关，与温度的关系由查理定律确定）</p>
+                <p>• 活化分子百分数：具有足够能量进行反应的分子所占百分比（由阿伦尼乌斯方程的简化模型进行计算）</p>
+                <p>• 单位体积内活化分子数：每单位体积内的活化分子数量（由活化分子数和容器体积计算）</p>
+                <p>• 微粒平均速率：与初始状态相比的分子平均运动速率（根据麦克斯韦-玻尔兹曼分布进行计算）</p>
+                <p>• 碰撞频率：每5秒内发生的总碰撞次数（实时统计）</p>
+                <p>• 有效碰撞频率：每5秒内发生的活化分子之间的碰撞次数（实时统计）</p>
+
+                <h3>三、局限性</h3>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="simulation.js"></script>
+</body>
+<!-- by Hong @涪陵五中 https://hong.im -->
+</html>
