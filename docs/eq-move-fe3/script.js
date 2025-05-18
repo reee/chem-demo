@@ -290,12 +290,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayInitialEquilibrium(state) {
         let html = '<h3>初始平衡状态</h3><div class="result-content">';
         
-        html += '<div class="data-row"><span class="data-label">Fe³⁺ 平衡浓度:</span> ' + state.fe3Eq.toFixed(6) + ' mol/L</div>';
-        html += '<div class="data-row"><span class="data-label">SCN⁻ 平衡浓度:</span> ' + state.scnEq.toFixed(6) + ' mol/L</div>';
-        html += '<div class="data-row"><span class="data-label">Fe(SCN)₃ 平衡浓度:</span> ' + state.fescn3Eq.toFixed(6) + ' mol/L</div>';
-        html += '<div class="data-row"><span class="data-label">平衡常数 K:</span> ' + document.getElementById('k-value').value + '</div>';
-        html += '<div class="data-row"><span class="data-label">Fe³⁺ 转化率:</span> ' + state.fe3ConversionRate.toFixed(2) + '%</div>';
-        html += '<div class="data-row"><span class="data-label">SCN⁻ 转化率:</span> ' + state.scnConversionRate.toFixed(2) + '%</div>';
+        html += '<div class="data-row"><span class="data-label">Fe³⁺ 平衡浓度:</span> <span class="highlight">' + state.fe3Eq.toFixed(4) + '</span> mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">SCN⁻ 平衡浓度:</span> <span class="highlight">' + state.scnEq.toFixed(4) + '</span> mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">Fe(SCN)₃ 平衡浓度:</span> <span class="highlight">' + state.fescn3Eq.toFixed(4) + '</span> mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">Fe³⁺ 转化率:</span> <span class="highlight">' + state.fe3ConversionRate.toFixed(2) + '</span>%</div>';
+        html += '<div class="data-row"><span class="data-label">SCN⁻ 转化率:</span> <span class="highlight">' + state.scnConversionRate.toFixed(2) + '</span>%</div>';
         
         html += '</div>';
         
@@ -305,11 +304,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayAfterChange(state) {
         let html = '<h3>条件改变后瞬时状态</h3><div class="result-content">';
         
-        html += '<div class="data-row"><span class="data-label">Fe³⁺ 浓度:</span> ' + state.fe3After.toFixed(6) + ' mol/L</div>';
-        html += '<div class="data-row"><span class="data-label">SCN⁻ 浓度:</span> ' + state.scnAfter.toFixed(6) + ' mol/L</div>';
-        html += '<div class="data-row"><span class="data-label">Fe(SCN)₃ 浓度:</span> ' + state.fescn3After.toFixed(6) + ' mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">Fe³⁺ 浓度:</span> <span class="highlight">' + state.fe3After.toFixed(4) + '</span> mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">SCN⁻ 浓度:</span> <span class="highlight">' + state.scnAfter.toFixed(4) + '</span> mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">Fe(SCN)₃ 浓度:</span> <span class="highlight">' + state.fescn3After.toFixed(4) + '</span> mol/L</div>';
         
-        html += '<div class="data-row"><span class="data-label">浓度商 Q:</span> ' + state.reactionQuotientAfter.toFixed(6) + '</div>';
+        html += '<div class="data-row"><span class="data-label">浓度商 Q:</span> <span class="highlight">' + state.reactionQuotientAfter.toFixed(4) + '</span></div>';
         
         const kValue = parseFloat(document.getElementById('k-value').value);
         
@@ -329,19 +328,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayNewEquilibrium(state, initialState) {
         let html = '<h3>新平衡状态</h3><div class="result-content">';
         
-        html += '<div class="data-row"><span class="data-label">Fe³⁺ 平衡浓度:</span> ' + state.fe3New.toFixed(6) + ' mol/L</div>';
-        html += '<div class="data-row"><span class="data-label">SCN⁻ 平衡浓度:</span> ' + state.scnNew.toFixed(6) + ' mol/L</div>';
-        html += '<div class="data-row"><span class="data-label">Fe(SCN)₃ 平衡浓度:</span> ' + state.fescn3New.toFixed(6) + ' mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">Fe³⁺ 平衡浓度:</span> <span class="highlight">' + state.fe3New.toFixed(4) + '</span> mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">SCN⁻ 平衡浓度:</span> <span class="highlight">' + state.scnNew.toFixed(4) + '</span> mol/L</div>';
+        html += '<div class="data-row"><span class="data-label">Fe(SCN)₃ 平衡浓度:</span> <span class="highlight">' + state.fescn3New.toFixed(4) + '</span> mol/L</div>';
         
         if (state.equilibriumDirection === 'forward') {
-            html += '<div class="data-row"><span class="data-label">额外反应量:</span> ' + state.additionalReactionAmount.toFixed(6) + ' mol/L</div>';
+            html += '<div class="data-row"><span class="data-label">额外反应量:</span> <span class="highlight">' + state.additionalReactionAmount.toFixed(4) + '</span> mol/L</div>';
         } else {
-            html += '<div class="data-row"><span class="data-label">分解反应量:</span> ' + Math.abs(state.additionalReactionAmount).toFixed(6) + ' mol/L</div>';
+            html += '<div class="data-row"><span class="data-label">分解反应量:</span> <span class="highlight">' + Math.abs(state.additionalReactionAmount).toFixed(4) + '</span> mol/L</div>';
         }
         
         // Display overall conversion rates
-        html += '<div class="data-row"><span class="data-label">Fe³⁺ 总转化率:</span> ' + state.fe3OverallConversionRate.toFixed(2) + '%</div>';
-        html += '<div class="data-row"><span class="data-label">SCN⁻ 总转化率:</span> ' + state.scnOverallConversionRate.toFixed(2) + '%</div>';
+        html += '<div class="data-row"><span class="data-label">Fe³⁺ 总转化率:</span> <span class="highlight">' + state.fe3OverallConversionRate.toFixed(2) + '</span>%</div>';
+        html += '<div class="data-row"><span class="data-label">SCN⁻ 总转化率:</span> <span class="highlight">' + state.scnOverallConversionRate.toFixed(2) + '</span>%</div>';
         
         html += '</div>';
         
