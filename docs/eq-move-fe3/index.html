@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>化学平衡移动演示 - Fe³⁺ + 3SCN⁻ ⇌ Fe(SCN)₃</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>化学平衡移动演示</h1>
+            <h2>Fe³⁺ + 3SCN⁻ ⇌ Fe(SCN)₃</h2>
+        </header>
+
+        <main>
+            <div class="input-sections-container">
+                <section class="input-section">
+                    <h3>初始平衡条件</h3>
+                    <div class="input-group">
+                        <div class="concentration-inputs">
+                            <div class="input-field">
+                                <label for="fe3-initial">Fe³⁺ 初始浓度: <span id="fe3-initial-value">0.1</span> mol/L</label>
+                                <input type="range" id="fe3-initial" min="0" max="0.5" step="0.01" value="0.1" oninput="document.getElementById('fe3-initial-value').textContent=this.value">
+                            </div>
+                            <div class="input-field">
+                                <label for="scn-initial">SCN⁻ 初始浓度: <span id="scn-initial-value">0.3</span> mol/L</label>
+                                <input type="range" id="scn-initial" min="0" max="1.0" step="0.01" value="0.3" oninput="document.getElementById('scn-initial-value').textContent=this.value">
+                            </div>
+                            <div class="input-field">
+                                <label for="k-value">平衡常数 K: <span id="k-value-value">100</span></label>
+                                <input type="range" id="k-value" min="0" max="500" step="1" value="100" oninput="document.getElementById('k-value-value').textContent=this.value">
+                            </div>
+                        </div>
+
+                        <button id="calculate-initial" class="btn primary">计算初始平衡</button>
+                    </div>
+                </section>
+
+                <section class="change-section">
+                    <h3>改变平衡条件</h3>
+                    <div class="input-group">
+                        <div class="change-inputs">
+                            <div class="input-field">
+                                <label for="add-fe">添加 Fe: <span id="add-fe-value">0</span> mol</label>
+                                <input type="range" id="add-fe" min="0" max="0.05" step="0.01" value="0" oninput="document.getElementById('add-fe-value').textContent=this.value">
+                            </div>
+                            <div class="input-field">
+                                <label for="add-kscn">添加 KSCN: <span id="add-kscn-value">0</span> mol</label>
+                                <input type="range" id="add-kscn" min="0" max="0.3" step="0.01" value="0" oninput="document.getElementById('add-kscn-value').textContent=this.value">
+                            </div>
+                            <div class="input-field">
+                                <label for="add-fescn3">添加 Fe(SCN)₃: <span id="add-fescn3-value">0</span> mol</label>
+                                <input type="range" id="add-fescn3" min="0" max="0.2" step="0.01" value="0" oninput="document.getElementById('add-fescn3-value').textContent=this.value">
+                            </div>
+                        </div>
+                        <button id="calculate-new" class="btn primary" disabled>计算新平衡</button>
+                    </div>
+                </section>
+            </div>
+
+            <section class="results-section">
+                <div class="results-container">
+                    <div class="result-box" id="initial-equilibrium">
+                        <h3>初始平衡状态</h3>
+                        <div class="result-content">
+                            <p>请先计算初始平衡</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box" id="after-change">
+                        <h3>条件改变后瞬时状态</h3>
+                        <div class="result-content">
+                            <p>请先计算初始平衡并添加物质</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box" id="new-equilibrium">
+                        <h3>新平衡状态</h3>
+                        <div class="result-content">
+                            <p>请先计算新平衡</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="charts-section">
+                <h3>反应过程图表</h3>
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <div class="chart-header">
+                            <h4>速率-时间图像</h4>
+                            <button class="btn-fullscreen" data-target="rateChart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="rateChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-box">
+                        <div class="chart-header">
+                            <h4>浓度-时间图像</h4>
+                            <button class="btn-fullscreen" data-target="concentrationChart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="concentrationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 全屏模态框 -->
+                <div id="fullscreenModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <div class="fullscreen-chart-wrapper">
+                            <canvas id="fullscreenChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simulation-controls">
+                    <button id="simulate-reaction" class="btn primary" disabled>模拟反应过程</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 化学教学演示项目</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
