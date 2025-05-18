@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
         netRates.push(netRate);
         
         // 第0阶段：建立原平衡
-        const phase0Steps = Math.ceil(steps * 0.3); // 30% 的总时间用于建立原平衡
+        const phase0Steps = Math.ceil(steps * 0.4); // 40% 的总时间用于建立原平衡
         
         for (let i = 1; i <= phase0Steps; i++) {
             const t = i * dt;
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scn = initialState.scnEq;
         fescn3 = initialState.fescn3Eq;
         
-        const phase1Steps = Math.ceil(steps * 0.2);  // 20% 的总时间用于展示稳定的原平衡
+        const phase1Steps = Math.ceil(steps * 0.1);  // 10% 的总时间用于展示稳定的原平衡
         const equilibriumTime = timePoints[timePoints.length - 1];
         
         for (let i = 1; i <= phase1Steps; i++) {

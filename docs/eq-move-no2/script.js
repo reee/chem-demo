@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const kValue = parseFloat(document.getElementById('k-value').value);
         
         // 计算反应速率常数（假设值，保证平衡时 kf/kr = K）
-        const kr = 1.0;  // 逆反应速率常数
+        const kr = 0.5;  // 逆反应速率常数
         const kf = kr * kValue;  // 正反应速率常数
         
         // 运行模拟
