@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆 -->
+  <circle cx="50" cy="50" r="48" fill="#f0f7ff" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- 平衡箭头 -->
+  <g transform="translate(50, 50)">
+    <!-- 左箭头 -->
+    <path d="M-30,0 L10,0 M-20,-10 L-30,0 L-20,10" stroke="#e11d48" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 右箭头 -->
+    <path d="M30,0 L-10,0 M20,-10 L30,0 L20,10" stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- NO₂ 分子 (左侧) -->
+  <g transform="translate(25, 35)">
+    <circle cx="0" cy="0" r="5" fill="#4b5563"/> <!-- N 原子 -->
+    <circle cx="-7" cy="-7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+    <circle cx="7" cy="-7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+  </g>
+  
+  <!-- NO₂ 分子 (左侧第二个) -->
+  <g transform="translate(15, 55)">
+    <circle cx="0" cy="0" r="5" fill="#4b5563"/> <!-- N 原子 -->
+    <circle cx="-7" cy="-7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+    <circle cx="7" cy="-7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+  </g>
+  
+  <!-- N₂O₄ 分子 (右侧) -->
+  <g transform="translate(75, 45)">
+    <circle cx="-10" cy="0" r="5" fill="#4b5563"/> <!-- N 原子 -->
+    <circle cx="10" cy="0" r="5" fill="#4b5563"/> <!-- N 原子 -->
+    <circle cx="-17" cy="-7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+    <circle cx="-17" cy="7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+    <circle cx="17" cy="-7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+    <circle cx="17" cy="7" r="4" fill="#ef4444"/> <!-- O 原子 -->
+  </g>
+</svg>
