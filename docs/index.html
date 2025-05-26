@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
+<html lang="zh-CN" data-theme="custom">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,201 +14,233 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3498db',
-                        secondary: '#2c3e50',
-                        accent: '#e74c3c',
+                        primary: '#4a6fa5',
+                        secondary: '#2d4356',
+                        accent: '#16a34a',
+                        neutral: '#334155',
+                        'base-100': '#f8fafc',
+                        'base-200': '#f1f5f9',
+                        'base-300': '#e2e8f0'
+                    },
+                    boxShadow: {
+                        'custom': '0 4px 20px -2px rgba(0, 0, 0, 0.1)',
+                        'custom-hover': '0 8px 30px -2px rgba(0, 0, 0, 0.15)'
                     }
                 }
             },
             daisyui: {
                 themes: [{
-                    light: {
-                        "primary": "#3498db",
-                        "secondary": "#2c3e50",
-                        "accent": "#e74c3c",
-                        "neutral": "#2c3e50",
-                        "base-100": "#f5f5f5",
-                        "info": "#3abff8",
-                        "success": "#36d399",
-                        "warning": "#fbbd23",
-                        "error": "#f87272",
+                    custom: {
+                        "primary": "#4a6fa5",
+                        "secondary": "#2d4356",
+                        "accent": "#16a34a",
+                        "neutral": "#334155",
+                        "base-100": "#f8fafc",
+                        "base-200": "#f1f5f9",
+                        "base-300": "#e2e8f0",
+                        "info": "#0ea5e9",
+                        "success": "#22c55e",
+                        "warning": "#f59e0b",
+                        "error": "#ef4444",
                     },
                 }],
             },
         }
     </script>
+    <style>
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 60px;
+            background: #4a6fa5;
+            border-radius: 3px;
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-base-100">
     <!-- 导航栏 -->
-    <div class="navbar bg-primary text-primary-content shadow-lg sticky top-0 z-50">
-        <div class="navbar-start">
-            <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+    <div class="navbar bg-base-100 shadow-custom sticky top-0 z-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-custom bg-base-100 rounded-box w-52 text-base-content">
+                        <li><a href="#about" class="hover:text-primary transition-colors">关于我</a></li>
+                        <li><a href="#projects" class="hover:text-primary transition-colors">项目展示</a></li>
+                    </ul>
                 </div>
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-base-content">
-                    <li><a href="#about" class="text-lg">关于我</a></li>
-                    <li><a href="#projects" class="text-lg">项目展示</a></li>
+                <a class="btn btn-ghost font-bold text-primary text-base">化学教学演示项目</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="#about" class="hover:text-primary transition-colors font-medium text-base">关于我</a></li>
+                    <li><a href="#projects" class="hover:text-primary transition-colors font-medium text-base">项目展示</a></li>
                 </ul>
             </div>
-            <a class="btn btn-ghost text-xl">化学教学演示项目</a>
-        </div>
-        <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1 text-lg">
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#projects">项目展示</a></li>
-            </ul>
         </div>
     </div>
 
     <!-- 英雄区域 -->
-    <div class="hero bg-gradient-to-r from-primary to-secondary text-primary-content py-16">
+    <div class="hero py-20 bg-gradient-to-r from-base-200 to-base-100">
         <div class="hero-content text-center">
             <div class="max-w-3xl">
-                <h1 class="text-5xl font-bold mb-4">化学教学演示项目</h1>
-                <p class="text-xl">交互式化学原理可视化教学工具</p>
+                <h1 class="text-5xl font-bold mb-6 text-secondary">化学教学演示项目</h1>
+                <p class="text-xl text-neutral opacity-90">交互式化学原理可视化教学工具</p>
             </div>
         </div>
     </div>
 
-    <main class="container mx-auto px-4 py-8 max-w-7xl">
-        <!-- 关于我部分 -->
-        <section id="about" class="mb-16">
-            <div class="card bg-base-200 shadow-xl">
-                <div class="card-body">
-                    <h2 class="card-title text-3xl font-bold mb-6 text-secondary border-b-2 border-primary pb-2 inline-block">关于我</h2>
-                    <p class="text-lg mb-4">作为一名热爱教育的中学化学教师，我致力于开发交互式教学工具，帮助学生更直观地理解化学原理。通过将抽象的化学概念可视化，我希望激发学生对化学的兴趣，提升课堂教学效果。</p>
-                    <p class="text-lg">我的目标是创建一系列高质量的化学演示项目，覆盖中学化学课程的关键知识点，为化学教育提供实用的数字化教学资源。</p>
+    <main class="container mx-auto px-4 py-12 max-w-7xl">
+        <!-- 项目展示部分 -->
+        <section id="projects" class="mb-20">
+            <h2 class="section-title text-3xl font-bold text-secondary">化学反应速率影响因素</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-base-100 shadow-custom hover:shadow-custom-hover overflow-hidden border border-base-300">
+                    <figure class="px-4 pt-4 overflow-hidden">
+                        <img src="assets/placeholder.svg" class="transform hover:scale-105 transition-transform duration-500" alt="化学反应速率影响因素模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="card-title text-xl font-bold text-primary">化学反应速率影响因素模拟</h3>
+                        <p>这个交互式模拟展示了浓度、压强和温度如何影响化学反应速率。学生可以调节不同参数，观察分子运动和碰撞的变化，直观理解影响反应速率的因素。</p>
+                        <div class="flex flex-wrap gap-2 my-4">
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-thermometer-half mr-1"></i> 温度调节</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-compress-alt mr-1"></i> 压强变化</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-flask mr-1"></i> 浓度控制</span>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="reaction-rate-demo/" class="btn btn-primary shadow-md hover:shadow-lg">查看演示</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- 项目展示部分 -->
-        <section id="projects" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-secondary border-b-2 border-primary pb-2 inline-block">项目展示</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                    <figure class="px-4 pt-4">
-                        <img src="assets/placeholder.svg" alt="化学反应速率影响因素模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
+            <h2 class="section-title text-3xl font-bold text-secondary mt-16">化学平衡的建立</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">                              
+                <div class="card bg-base-100 shadow-custom hover:shadow-custom-hover overflow-hidden border border-base-300">
+                    <figure class="px-4 pt-4 overflow-hidden">
+                        <img src="assets/placeholder.svg" class="transform hover:scale-105 transition-transform duration-500" alt="一氧化碳生成反应模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
                     </figure>
                     <div class="card-body">
-                        <h3 class="card-title text-xl font-bold text-secondary">化学反应速率影响因素模拟</h3>
-                        <p>这个交互式模拟展示了浓度、压强和温度如何影响化学反应速率。学生可以调节不同参数，观察分子运动和碰撞的变化，直观理解影响反应速率的因素。</p>
-                        <div class="flex flex-wrap gap-2 my-3">
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-thermometer-half mr-1"></i> 温度调节</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-compress-alt mr-1"></i> 压强变化</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-flask mr-1"></i> 浓度控制</span>
-                        </div>
-                        <div class="card-actions justify-end mt-2">
-                            <a href="reaction-rate-demo/" class="btn btn-primary">查看演示</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                    <figure class="px-4 pt-4">
-                        <img src="assets/placeholder.svg" alt="化学平衡移动演示 - Fe³⁺ + SCN⁻ ⇌ Fe(SCN)₃" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
-                    </figure>
-                    <div class="card-body">
-                        <h3 class="card-title text-xl font-bold text-secondary">化学平衡移动演示 - 浓度变化</h3>
-                        <p>这个交互式演示展示了Fe³⁺ + 3SCN⁻ ⇌ Fe(SCN)₃反应中改变反应物或产物浓度对化学平衡的影响。学生可以调整初始浓度和添加物质，观察平衡如何移动以及浓度和反应速率随时间的变化。</p>
-                        <div class="flex flex-wrap gap-2 my-3">
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-balance-scale mr-1"></i> 動平衡原理</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-chart-line mr-1"></i> 实时图表</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-flask mr-1"></i> 浓度影响</span>
-                        </div>
-                        <div class="card-actions justify-end mt-2">
-                            <a href="eq-move-fe3/" class="btn btn-primary">查看演示</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                    <figure class="px-4 pt-4">
-                        <img src="assets/placeholder.svg" alt="化学平衡移动演示 - 2NO₂ ⇌ N₂O₄" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
-                    </figure>
-                    <div class="card-body">
-                        <h3 class="card-title text-xl font-bold text-secondary">化学平衡移动演示 - 体积变化</h3>
-                        <p>这个交互式演示展示了2NO₂ ⇌ N₂O₄反应中改变容器体积对化学平衡的影响。学生可以调整容器相对体积，观察動平衡原理如何预测平衡移动方向，以及浓度和反应速率随时间的变化。</p>
-                        <div class="flex flex-wrap gap-2 my-3">
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-compress-alt mr-1"></i> 体积影响</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-balance-scale mr-1"></i> 動平衡原理</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-chart-line mr-1"></i> 实时图表</span>
-                        </div>
-                        <div class="card-actions justify-end mt-2">
-                            <a href="eq-move-no2-p/" class="btn btn-primary">查看演示</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                    <figure class="px-4 pt-4">
-                        <img src="assets/placeholder.svg" alt="一氧化碳生成反应模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
-                    </figure>
-                    <div class="card-body">
-                        <h3 class="card-title text-xl font-bold text-secondary">一氧化碳生成反应模拟</h3>
+                        <h3 class="card-title text-xl font-bold text-primary">一氧化碳生成反应模拟</h3>
                         <p>这个模拟展示了恒温恒容条件下一氧化碳生成反应（C(s) + CO₂(g) ⇌ 2CO(g)）的动态平衡过程。学生可以调整反应物或产物的初始物质的量和平衡常数，观察各物理量随时间的变化。</p>
-                        <div class="flex flex-wrap gap-2 my-3">
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-balance-scale mr-1"></i> 化学平衡</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-chart-line mr-1"></i> 动态图表</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-atom mr-1"></i> 物质的量计算</span>
+                        <div class="flex flex-wrap gap-2 my-4">
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-balance-scale mr-1"></i> 化学平衡</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-chart-line mr-1"></i> 动态图表</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-atom mr-1"></i> 物质的量计算</span>
                         </div>
-                        <div class="card-actions justify-end mt-2">
-                            <a href="co-eq/" class="btn btn-primary">查看演示</a>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="co-eq/" class="btn btn-primary shadow-md hover:shadow-lg">查看演示</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                    <figure class="px-4 pt-4">
-                        <img src="assets/placeholder.svg" alt="氢碘化氢反应模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
+                <div class="card bg-base-100 shadow-custom hover:shadow-custom-hover overflow-hidden border border-base-300">
+                    <figure class="px-4 pt-4 overflow-hidden">
+                        <img src="assets/placeholder.svg" class="transform hover:scale-105 transition-transform duration-500" alt="氢碘化氢反应模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
                     </figure>
                     <div class="card-body">
-                        <h3 class="card-title text-xl font-bold text-secondary">氢碘化氢反应模拟</h3>
+                        <h3 class="card-title text-xl font-bold text-primary">氢碘化氢反应模拟</h3>
                         <p>这个模拟展示了恒温恒容条件下氢碘化氢反应（H₂(g) + I₂(g) ⇌ 2HI(g)）的动态平衡过程。通过调整反应物或产物的初始物质的量和平衡常数，观察系统如何达到平衡状态。</p>
-                        <div class="flex flex-wrap gap-2 my-3">
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-balance-scale mr-1"></i> 化学平衡</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-chart-line mr-1"></i> 物理量变化</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-tachometer-alt mr-1"></i> 反应进程</span>
+                        <div class="flex flex-wrap gap-2 my-4">
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-balance-scale mr-1"></i> 化学平衡</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-chart-line mr-1"></i> 物理量变化</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-tachometer-alt mr-1"></i> 反应进程</span>
                         </div>
-                        <div class="card-actions justify-end mt-2">
-                            <a href="hi-eq/" class="btn btn-primary">查看演示</a>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="hi-eq/" class="btn btn-primary shadow-md hover:shadow-lg">查看演示</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                    <figure class="px-4 pt-4">
-                        <img src="assets/placeholder.svg" alt="合成氨反应模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
+                <div class="card bg-base-100 shadow-custom hover:shadow-custom-hover overflow-hidden border border-base-300">
+                    <figure class="px-4 pt-4 overflow-hidden">
+                        <img src="assets/placeholder.svg" class="transform hover:scale-105 transition-transform duration-500" alt="合成氨反应模拟" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
                     </figure>
                     <div class="card-body">
-                        <h3 class="card-title text-xl font-bold text-secondary">合成氨反应模拟</h3>
+                        <h3 class="card-title text-xl font-bold text-primary">合成氨反应模拟</h3>
                         <p>这个模拟展示了恒温恒容条件下合成氨反应（N₂(g) + 3H₂(g) ⇌ 2NH₃(g)）的动态平衡过程。学生可以探索不同初始条件下的反应进程，理解化学平衡的动态性质。</p>
-                        <div class="flex flex-wrap gap-2 my-3">
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-balance-scale mr-1"></i> 化学平衡</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-industry mr-1"></i> 工业合成</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-chart-area mr-1"></i> 数据可视化</span>
+                        <div class="flex flex-wrap gap-2 my-4">
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-balance-scale mr-1"></i> 化学平衡</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-industry mr-1"></i> 工业合成</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-chart-area mr-1"></i> 数据可视化</span>
                         </div>
-                        <div class="card-actions justify-end mt-2">
-                            <a href="nh3-eq/" class="btn btn-primary">查看演示</a>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="nh3-eq/" class="btn btn-primary shadow-md hover:shadow-lg">查看演示</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="section-title text-3xl font-bold text-secondary mt-16">化学平衡的移动</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">   
+                <div class="card bg-base-100 shadow-custom hover:shadow-custom-hover overflow-hidden border border-base-300">
+                    <figure class="px-4 pt-4 overflow-hidden">
+                        <img src="assets/placeholder.svg" class="transform hover:scale-105 transition-transform duration-500" alt="化学平衡移动演示 - Fe³⁺ + SCN⁻ ⇌ Fe(SCN)₃" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="card-title text-xl font-bold text-primary">化学平衡移动演示 - 浓度变化</h3>
+                        <p>这个交互式演示展示了Fe³⁺ + 3SCN⁻ ⇌ Fe(SCN)₃反应中改变反应物或产物浓度对化学平衡的影响。学生可以调整初始浓度和添加物质，观察平衡如何移动以及浓度和反应速率随时间的变化。</p>
+                        <div class="flex flex-wrap gap-2 my-4">
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-balance-scale mr-1"></i> 勒夏特列原理</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-chart-line mr-1"></i> 实时图表</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-flask mr-1"></i> 浓度影响</span>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="eq-move-fe3/" class="btn btn-primary shadow-md hover:shadow-lg">查看演示</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                    <figure class="px-4 pt-4">
-                        <img src="assets/placeholder.svg" alt="化学平衡移动演示 - 2NO₂ ⇌ N₂O₄ (温度变化)" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
+                <div class="card bg-base-100 shadow-custom hover:shadow-custom-hover overflow-hidden border border-base-300">
+                    <figure class="px-4 pt-4 overflow-hidden">
+                        <img src="assets/placeholder.svg" class="transform hover:scale-105 transition-transform duration-500" alt="化学平衡移动演示 - 2NO₂ ⇌ N₂O₄" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
                     </figure>
                     <div class="card-body">
-                        <h3 class="card-title text-xl font-bold text-secondary">化学平衡移动演示 - 温度变化</h3>
-                        <p>这个交互式演示展示了2NO₂ ⇌ N₂O₄反应中改变温度对化学平衡的影响。学生可以调整系统温度，观察平衡如何移动以及浓度和反应速率随时间的变化，直观理解吸热反应和放热反应的平衡移动规律。</p>
-                        <div class="flex flex-wrap gap-2 my-3">
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-thermometer-half mr-1"></i> 温度影响</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-balance-scale mr-1"></i> 動平衡原理</span>
-                            <span class="badge badge-primary badge-outline"><i class="fas fa-chart-line mr-1"></i> 实时图表</span>
+                        <h3 class="card-title text-xl font-bold text-primary">化学平衡移动演示 - 体积变化</h3>
+                        <p>这个交互式演示展示了2NO₂ ⇌ N₂O₄反应中改变容器体积对化学平衡的影响。学生可以调整容器相对体积，观察勒夏特列原理如何预测平衡移动方向，以及浓度和反应速率随时间的变化。</p>
+                        <div class="flex flex-wrap gap-2 my-4">
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-compress-alt mr-1"></i> 体积影响</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-balance-scale mr-1"></i> 勒夏特列原理</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-chart-line mr-1"></i> 实时图表</span>
                         </div>
-                        <div class="card-actions justify-end mt-2">
-                            <a href="eq-move-no2-t/" class="btn btn-primary">查看演示</a>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="eq-move-no2-p/" class="btn btn-primary shadow-md hover:shadow-lg">查看演示</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-custom hover:shadow-custom-hover overflow-hidden border border-base-300">
+                    <figure class="px-4 pt-4 overflow-hidden">
+                        <img src="assets/placeholder.svg" class="transform hover:scale-105 transition-transform duration-500" alt="化学平衡移动演示 - 2NO₂ ⇌ N₂O₄ (温度变化)" class="rounded-xl h-48 w-full object-cover" onerror="this.src='assets/placeholder.svg'">
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="card-title text-xl font-bold text-primary">化学平衡移动演示 - 温度变化</h3>
+                        <p>这个交互式演示展示了2NO₂ ⇌ N₂O₄反应中改变温度对化学平衡的影响。学生可以调整系统温度，观察平衡如何移动以及浓度和反应速率随时间的变化，直观理解吸热反应和放热反应的平衡移动规律。</p>
+                        <div class="flex flex-wrap gap-2 my-4">
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-thermometer-half mr-1"></i> 温度影响</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-balance-scale mr-1"></i> 勒夏特列原理</span>
+                            <span class="badge badge-primary badge-outline bg-base-200"><i class="fas fa-chart-line mr-1"></i> 实时图表</span>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="eq-move-no2-t/" class="btn btn-primary shadow-md hover:shadow-lg">查看演示</a>
                         </div>
                     </div>
                 </div>
@@ -216,9 +248,10 @@
         </section>
     </main>
 
-    <footer class="footer footer-center p-10 bg-primary text-primary-content mt-16">
-        <div>
-            <p class="text-lg">&copy; <span id="current-year">2025</span> 化学教学演示项目集 | 使用 <a href="https://pages.github.com/" target="_blank" class="underline hover:text-white">GitHub Pages</a> 托管</p>
+    <footer class="footer footer-center p-10 mt-16 bg-base-200 text-neutral">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="max-w-md mx-auto">
+            <p class="font-medium">&copy; <span id="current-year">2025</span> 化学教学演示项目集 | By <a href="https://hong.im/" target="_blank" class="text-primary hover:underline">Hong</a> | 使用 <a href="https://pages.github.com/" target="_blank" class="text-primary hover:underline">GitHub Pages</a> 托管</p>
             <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
         </div>
     </footer>
